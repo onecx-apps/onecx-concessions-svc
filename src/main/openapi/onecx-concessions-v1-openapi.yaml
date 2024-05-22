@@ -1,10 +1,10 @@
 ---
 openapi: 3.0.3
 info:
-  title: onecx-consessions v1 service
+  title: onecx-concessions v1 service
   version: 1.0.0
 servers:
-  - url: "http://onecx-consessions-svc:8080"
+  - url: "http://onecx-concessions-svc:8080"
 tags:
   - name: travelConcessionsV1
   - name: travelOfferingsV1

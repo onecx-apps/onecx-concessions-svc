@@ -1,6 +1,6 @@
 app:
   name: svc
   image:
-    repository: "onecx-app/onecx-consessions-svc"
+    repository: "onecx-app/onecx-concessions-svc"
   db:
     enabled: true
