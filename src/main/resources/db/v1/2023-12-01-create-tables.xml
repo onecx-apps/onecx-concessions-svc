@@ -1,0 +1,63 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+    objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="dev (generated)" id="1715781772364-3">
+        <createTable tableName="travel_offering">
+            <column name="optlock" type="INTEGER">
+                <constraints nullable="false" />
+            </column>
+            <column name="required_payment" type="FLOAT4" />
+            <column name="creationdate" type="TIMESTAMP WITHOUT TIME ZONE" />
+            <column name="modificationdate" type="TIMESTAMP WITHOUT TIME ZONE" />
+            <column name="allowed_wagon_class" type="VARCHAR(255)" />
+            <column name="guid" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true"
+                    primaryKeyName="travel_offering_pkey" />
+            </column>
+            <column name="name" type="VARCHAR(255)" />
+            <column name="state" type="VARCHAR(255)" />
+            <column name="remote_id" type="VARCHAR(255)" />
+            <column name="tenant_id" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="creationuser" type="VARCHAR(255)" />
+            <column name="modificationuser" type="VARCHAR(255)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet author="dev (generated)" id="1716296617305-1">
+        <createTable tableName="travel_concession">
+            <column name="optlock" type="INTEGER">
+                <constraints nullable="false" />
+            </column>
+            <column name="creationdate" type="TIMESTAMP WITHOUT TIME ZONE" />
+            <column name="modificationdate" type="TIMESTAMP WITHOUT TIME ZONE" />
+            <column name="customer_relation_to_principal" type="VARCHAR(255)" />
+            <column name="guid" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true"
+                    primaryKeyName="travel_concession_pkey" />
+            </column>
+            <column name="principal_role" type="VARCHAR(255)" />
+            <column name="state" type="VARCHAR(255)" />
+            <column name="tenant_id" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="creationuser" type="VARCHAR(255)" />
+            <column name="modificationuser" type="VARCHAR(255)" />
+            <column name="traveloffering_guid" type="VARCHAR(255)" />
+        </createTable>
+    </changeSet>
+    
+    <changeSet author="dev (generated)" id="1716296617305-2">
+        <addForeignKeyConstraint baseColumnNames="traveloffering_guid"
+            baseTableName="travel_concession" constraintName="fkggajsghd2nexxeutf0hhokc87"
+            deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+            referencedColumnNames="guid" referencedTableName="travel_offering" validate="true" />
+    </changeSet>
+
+</databaseChangeLog>
