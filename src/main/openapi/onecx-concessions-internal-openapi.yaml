@@ -490,6 +490,8 @@ components:
     TravelConcessionSearchCriteria:
       type: object
       properties:
+        state:
+          type: string      
         principalRole:
           type: string
         customerRelationToPrincipal:
