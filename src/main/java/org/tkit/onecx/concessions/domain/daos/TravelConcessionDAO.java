@@ -56,6 +56,8 @@ public class TravelConcessionDAO extends AbstractDAO<TravelConcession> {
                     criteria.getPrincipalRole());
             addSearchStringPredicate(predicates, cb, root.get(TravelConcession_.customerRelationToPrincipal),
                     criteria.getCustomerRelationToPrincipal());
+            addSearchStringPredicate(predicates, cb, root.get(TravelConcession_.state),
+                    criteria.getState());
 
             // Allow search by offering name
             if (criteria.getOfferingName() != null) {

@@ -19,4 +19,6 @@ public class TravelConcessionSearchCriteria {
 
     private String offeringName;
 
+    private String state;
+
 }
