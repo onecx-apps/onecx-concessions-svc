@@ -1,0 +1,8 @@
+include::onecx-concessions-svc-attributes.adoc[opts=optional]
+
+== onecx-concessions-svc
+
+include::docs.adoc[opts=optional]
+
+
+include::onecx-concessions-svc-docs.adoc[opts=optional]

@@ -457,6 +457,8 @@ components:
           type: string
         remoteId:
           type: string
+        group:
+          type: string
         pageNumber:
           format: int32
           description: The number of page.
@@ -553,6 +555,8 @@ components:
         requiredPayment:
           type: number
         remoteId:
+          type: string
+        group:
           type: string
     TravelConcession:
       type: object
@@ -733,6 +737,8 @@ components:
           type: number
         remoteId:
           type: string
+        group:
+          type: string
     UpdateTravelOffering:
       required:
         - itemId
@@ -748,6 +754,8 @@ components:
         requiredPayment:
           type: number
         remoteId:
+          type: string
+        group:
           type: string
     CreateTravelConcession:
       required:
