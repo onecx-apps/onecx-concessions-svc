@@ -1,0 +1,5 @@
+
+:docker-registry: https://github.com/onecx/onecx-concessions-svc/pkgs/container/onecx-concessions-svc
+:helm-registry: https://github.com/onecx/onecx-concessions-svc/pkgs/container/charts%2Fonecx-concessions-svc
+:properties-file: src/main/resources/application.properties
+:helm-file: src/main/helm/values.yaml

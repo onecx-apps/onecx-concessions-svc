@@ -21,4 +21,6 @@ public class TravelOfferingSearchCriteria {
 
     private Integer pageSize;
 
+    private String group;
+
 }

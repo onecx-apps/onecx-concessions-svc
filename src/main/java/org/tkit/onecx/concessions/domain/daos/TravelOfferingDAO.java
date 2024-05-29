@@ -52,6 +52,8 @@ public class TravelOfferingDAO extends AbstractDAO<TravelOffering> {
                     criteria.getAllowedWagonClass());
             addSearchStringPredicate(predicates, cb, root.get(TravelOffering_.state),
                     criteria.getState());
+            addSearchStringPredicate(predicates, cb, root.get(TravelOffering_.group),
+                    criteria.getGroup());
 
             if (!predicates.isEmpty()) {
                 cq.where(predicates.toArray(new Predicate[] {}));

@@ -33,4 +33,7 @@ public class TravelOffering extends TraceableEntity {
     @Column(name = "REQUIRED_PAYMENT")
     private Float requiredPayment;
 
+    @Column(name = "OFFERING_GROUP")
+    private String group;
+
 }
