@@ -11,6 +11,8 @@ tags:
 paths:
   /v1/travelOfferings{offeringId}:
     get:
+      security:
+        - oauth2: [ ocxa-cs:read ]
       tags:
         - travelOfferingsV1
       description: search travelOfferings item by criteria
@@ -32,6 +34,14 @@ paths:
         404:
           description: Travel Offering not found
 components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.simple.api/token
+          scopes:
+            ocxa-cs:read: Grants read access
   schemas:
     TravelOffering:
       required:
