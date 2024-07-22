@@ -11,6 +11,8 @@ tags:
 paths:
   /internal/travelofferings:
     post:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:write ]
       tags:
         - travelOfferingsInternal
       description: Create new travel offering
@@ -42,6 +44,8 @@ paths:
                 $ref: "#/components/schemas/ProblemDetailResponse"
   /internal/travelofferings/{id}:
     get:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:read ]
       tags:
         - travelOfferingsInternal
       description: Return travel offering by ID
@@ -62,6 +66,8 @@ paths:
         "404":
           description: Not found
     put:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:write ]
       tags:
         - travelOfferingsInternal
       description: Update travel offering by ID
@@ -94,6 +100,8 @@ paths:
         404:
           description: Travel offering not found
     delete:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:delete ]
       tags:
         - travelOfferingsInternal
       description: Delete travel offering by ID
@@ -109,6 +117,8 @@ paths:
           description: Travel offering deleted
   /internal/travelofferings/all:
     get:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:read ]
       tags:
         - travelOfferingsInternal
       description: Return all travel offerings
@@ -126,6 +136,8 @@ paths:
           description: Not found
   /internal/travelofferings/search:
     post:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:write ]
       tags:
         - travelOfferingsInternal
       description: Search for travel offerings
@@ -145,6 +157,8 @@ paths:
                 $ref: "#/components/schemas/TravelOfferingPageResult"
   /internal/travelconcessions:
     post:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:write ]
       tags:
         - travelConcessionsInternal
       description: Create new travel concession
@@ -176,6 +190,8 @@ paths:
                 $ref: "#/components/schemas/ProblemDetailResponse"
   /internal/travelconcessions/{id}:
     get:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:read ]
       tags:
         - travelConcessionsInternal
       description: Return travel concession by ID
@@ -196,6 +212,8 @@ paths:
         "404":
           description: Not found
     put:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:write ]
       tags:
         - travelConcessionsInternal
       description: Update travel concession by ID
@@ -228,6 +246,8 @@ paths:
         404:
           description: Travel offering not found
     delete:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:delete ]
       tags:
         - travelConcessionsInternal
       description: Delete travel concession by ID
@@ -243,6 +263,8 @@ paths:
           description: Travel concession deleted
   /internal/travelconcessions/search:
     post:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:write ]
       tags:
         - travelConcessionsInternal
       description: Search for travel concessions
@@ -262,6 +284,8 @@ paths:
                 $ref: "#/components/schemas/TravelConcessionPageResult"
   /internal/searchConfig/{configId}:
     put:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:write ]
       x-onecx:
         permissions:
           tenant:
@@ -305,6 +329,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/ProblemDetailResponse"
     delete:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:delete ]
       x-onecx:
         permissions:
           tenant:
@@ -338,6 +364,8 @@ paths:
                 $ref: "#/components/schemas/ProblemDetailResponse"
   /internal/searchConfig/infos/{page}:
     get:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:read ]
       x-onecx:
         permissions:
           tenant:
@@ -374,6 +402,8 @@ paths:
                 $ref: "#/components/schemas/ProblemDetailResponse"
   /internal/searchConfig/{id}:
     get:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:read ]
       tags:
         - SearchConfig
       summary: Gets the search config infos for the specified page.
@@ -409,6 +439,8 @@ paths:
 
   /internal/searchConfig/:
     post:
+      security:
+        - oauth2: [ ocxa-cs:all, ocxa-cs:write ]
       x-onecx:
         permissions:
           tenant:
@@ -445,6 +477,17 @@ paths:
               schema:
                 $ref: "#/components/schemas/ProblemDetailResponse"                
 components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://oauth.simple.api/token
+          scopes:
+            ocxa-cs:all: Grants access to all operations
+            ocxa-cs:read: Grants read access
+            ocxa-cs:write: Grants write access
+            ocxa-cs:delete: Grants access to delete operations
   schemas:
     TravelOfferingSearchCriteria:
       type: object
